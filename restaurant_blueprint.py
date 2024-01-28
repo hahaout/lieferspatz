@@ -120,10 +120,10 @@ def update_profile():
             session['description'] = _restaurant_.get_description()
            
         flash("profile edited successfuly")
-        return redirect(url_for('restaurant_home'))
+        return redirect(url_for('restaurant.restaurant_home'))
 
     else:
-        return redirect(url_for('edit_restaurant_data'))
+        return redirect(url_for('restaurant.edit_restaurant_data'))
     
 @restaurant_b.route("/edit_opening_times", methods = ["POST","GET"])
 @login_required_restaurant
@@ -227,7 +227,7 @@ def delete_items():
                 flash("Items deleted successfully")
             else:
                 flash("an error accured")
-        return redirect(url_for("restaurant_home"))
+        return redirect(url_for("restaurant.restaurant_home"))
 
     items = restaurant.getMenu()  # Fetch menu items for display
     print("menu: ", items)
