@@ -216,7 +216,7 @@ def logout_customer():
         print(session)
         if 'cart_items' in session:
             flash("Cart is not clear. Please clear before you log out.")
-            return redirect(url_for('order_cart.view_cart'))
+            return redirect(url_for('customer.view_cart'))
         else:    
             session.clear()
             return redirect(url_for('login'))
