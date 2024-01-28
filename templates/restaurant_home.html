@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Profile{% endblock %}
 {% block button %}
-<form action="{{ url_for('order_cart.restaurant_order') }}" method="POST">
+<form action="{{ url_for('restaurant.restaurant_order') }}" method="POST">
     <input type="submit" value="My Orders" class="button-link">
 </form>
 <form action="/logout_restaurant" method="POST">
@@ -46,11 +46,11 @@
         <h3>Description:</h3>
         <p>{{ des }}</p>
         {% if should_show_edit_button %}
-        <form action="/edit_restaurant_data" method="POST">
+        <form action="/restaurant/edit_restaurant_data" method="POST">
             <button type="submit" value="edit_restaurant_data" class="button-link">Edit Profile</button></form>{% endif %}
     </div>
     {% if  should_show_edit_form %}
-        <form action="/update_profile" method = "POST" class="form-group">
+        <form action="/restaurant/update_profile" method = "POST" class="form-group">
             <label for = "restaurant_name">Restaurant Name:</label>
             <input type="text" name="restaurant_name" id = "restaurant_name" class="transparent-input"><br><br>
             <label for = "username">Username: </label>
@@ -99,7 +99,7 @@
         </table>
   
         {% if show_menu_button %}
-        <form action="/edit_menu" method="POST">
+        <form action="/restaurant/edit_menu" method="POST">
         <button type = "submit" value = "submit" class="button-link">Edit Menu</button>
         </form>
     <br>
@@ -107,7 +107,7 @@
     </div>
         {% if show_menu_form %}
         <div class="form-group">
-        <form action="/add_items" method="POST" class="form-group">
+        <form action="/restaurant/add_items" method="POST" class="form-group">
             <label for = "item_name" >Item Name</label>
             <input type="text" name="item_name" id="item_name" class="transparent-input" required><br><br>
             <label for="price">Price</label>
@@ -130,7 +130,7 @@
 
             <button type="submit" value="submit" class="button-link">add item</button>
             <a href = /delete_items class = "button-link">Delete Items from menu</a>
-            <a href="/restaurant_home" class="button-link"> back to profile page </a>
+            <a href="/restaurant/restaurant_home" class="button-link"> back to profile page </a>
         </form>
         <div id = "updated_menu">
             <h4>Menu after Update</h4>
@@ -157,7 +157,7 @@
         </table>
         {% endfor %}
 
-        <form action="/edit_range" method="POST">
+        <form action="/restaurant/edit_range" method="POST">
             <button type="submit" value="submit" class="button-link">edit delivery range</button>
         </form>
 
